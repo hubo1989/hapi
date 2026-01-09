@@ -64,6 +64,8 @@ ${chalk.bold('Usage:')}
   hapi auth              Manage authentication
   hapi codex             Start Codex mode
   hapi gemini            Start Gemini ACP mode
+  hapi iflow             Start iFlow mode
+  hapi opencode          Start OpenCode mode
   hapi mcp               Start MCP stdio bridge
   hapi connect           (not available in direct-connect mode)
   hapi notify            (not available in direct-connect mode)

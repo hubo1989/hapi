@@ -18,7 +18,7 @@ export type PermissionMode = typeof PERMISSION_MODES[number]
 export const MODEL_MODES = ['default', 'sonnet', 'opus'] as const
 export type ModelMode = typeof MODEL_MODES[number]
 
-export type AgentFlavor = 'claude' | 'codex' | 'gemini'
+export type AgentFlavor = 'claude' | 'codex' | 'gemini' | 'iflow' | 'opencode'
 
 export const PERMISSION_MODE_LABELS: Record<PermissionMode, string> = {
     default: 'Default',
@@ -69,6 +69,9 @@ export function getPermissionModesForFlavor(flavor?: string | null): readonly Pe
     if (flavor === 'gemini') {
         return []
     }
+    if (flavor === 'iflow' || flavor === 'opencode') {
+        return []
+    }
     return CLAUDE_PERMISSION_MODES
 }
 
@@ -85,7 +88,7 @@ export function isPermissionModeAllowedForFlavor(mode: PermissionMode, flavor?: 
 }
 
 export function getModelModesForFlavor(flavor?: string | null): readonly ModelMode[] {
-    if (flavor === 'codex' || flavor === 'gemini') {
+    if (flavor === 'codex' || flavor === 'gemini' || flavor === 'iflow' || flavor === 'opencode') {
         return []
     }
     return MODEL_MODES
