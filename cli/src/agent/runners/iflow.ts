@@ -12,7 +12,8 @@ function buildEnv(): Record<string, string> {
 }
 
 export function registerIflowAgent(yolo: boolean): void {
-    const args = ['--experimental-acp'];
+    // iflow 默认支持 ACP，不需要 --experimental-acp 参数
+    const args: string[] = [];
     if (yolo) args.push('--yolo');
 
     AgentRegistry.register('iflow', () => new AcpSdkBackend({

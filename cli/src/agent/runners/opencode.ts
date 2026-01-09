@@ -12,7 +12,8 @@ function buildEnv(): Record<string, string> {
 }
 
 export function registerOpencodeAgent(yolo: boolean): void {
-    const args = ['--experimental-acp'];
+    // opencode 使用 'acp' 子命令来启动 ACP 服务器
+    const args = ['acp'];
     if (yolo) args.push('--yolo');
 
     AgentRegistry.register('opencode', () => new AcpSdkBackend({
